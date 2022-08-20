@@ -1,9 +1,11 @@
 import express from 'express';
+import routes from './routes';
 
 class App {
   constructor() {
     this.app = express();
     this.config();
+    this.routes();
   }
 
   public app: express.Express;
@@ -27,6 +29,10 @@ class App {
       console.log('This Server is Running on PORT', PORT);
     });
   }
+
+  private routes = () => {
+    this.app.use(routes);
+  };
 }
 
 export { App };
