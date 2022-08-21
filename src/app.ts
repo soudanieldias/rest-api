@@ -1,4 +1,5 @@
 import express from 'express';
+import { db } from './database/db';
 import routes from './routes';
 
 class App {
@@ -6,6 +7,7 @@ class App {
     this.app = express();
     this.config();
     this.routes();
+    this.syncDb();
   }
 
   public app: express.Express;
@@ -33,6 +35,10 @@ class App {
   private routes = () => {
     this.app.use(routes);
   };
+
+  private syncDb = async () => {
+    await db.sync();
+  }
 }
 
 export { App };
