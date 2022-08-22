@@ -8,7 +8,7 @@ export default class BooksService {
   };
 
   public async findOne(id:string) {
-    const book = await BookModel.findByPk(id);
+    const book = await BookModel.findOne({ where: { id } });
     if (!book) return { status: 404, message: { error: 'Erro. Livro não Encontrado!' } };
     return {status: 200, message: book };
   };
