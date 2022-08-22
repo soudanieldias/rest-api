@@ -14,8 +14,7 @@ export default class BooksService {
   };
 
   public async create(bookData:IBook) {
-    const { name, description, author } = bookData;
-    const book = BookModel.create({ name, description, author });
+    const book = await BookModel.create({ ...bookData });
     return { status: 201, message: book };
   };
 }
