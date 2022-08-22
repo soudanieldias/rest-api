@@ -37,7 +37,7 @@ class App {
   };
 
   private syncDb = async () => {
-    await db.sync();
+    await db.sync({ force: true });
   }
 }
 
