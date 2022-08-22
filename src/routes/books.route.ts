@@ -1,10 +1,14 @@
 import { Router } from 'express';
 import { BooksController } from '../controllers';
+import { BooksService } from '../services';
 
 const booksRouter = Router();
 
+const booksService = new BooksService();
 const booksController = new BooksController();
 
-booksRouter.get('/', booksController.getBooks);
+booksRouter.get('/', booksController.findAll);
+booksRouter.get('/:id', booksController.findOne);
+booksRouter.post('/', booksController.create);
 
 export default booksRouter;
