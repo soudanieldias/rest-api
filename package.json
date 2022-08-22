@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "start": "ts-node ./src/index.ts",
+    "application": "ts-node-dev -r dotenv/config src/index.ts",
     "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "build": "npx tsc"
