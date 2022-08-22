@@ -34,10 +34,11 @@ class App {
 
   private routes = () => {
     this.app.use(routes);
+    this.app.use('/images', express.static('static'));
   };
 
   private syncDb = async () => {
-    await db.sync({ force: true });
+    await db.sync({ force: false });
   }
 }
 
