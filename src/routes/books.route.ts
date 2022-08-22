@@ -4,7 +4,6 @@ import { BooksService } from '../services';
 
 const booksRouter = Router();
 
-const booksService = new BooksService();
 const booksController = new BooksController();
 
 booksRouter.get('/', booksController.findAll);
