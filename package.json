@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "start": "ts-node ./src/index.ts",
     "application": "ts-node-dev -r dotenv/config src/index.ts",
@@ -17,17 +17,24 @@
   "license": "ISC",
   "dependencies": {
     "@types/sequelize": "^4.28.14",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "http-status-codes": "^2.2.0",
+    "jest": "^28.1.3",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
     "sequelize": "^6.21.4",
+    "sinon": "^14.0.0",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.3",
     "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.7",
     "@types/node": "^18.7.8",
+    "@types/sinon": "^10.0.13",
     "eslint": "^6.8.0",
     "eslint-config-trybe-backend": "^1.0.1",
     "sequelize-cli": "^6.4.1",
