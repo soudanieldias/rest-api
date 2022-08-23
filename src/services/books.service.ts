@@ -17,10 +17,20 @@ export default class BooksService {
     const book = await BookModel.create({ ...bookData });
     return { status: 201, message: book };
   };
+
   public async update(bookData:IBook, id:string) {
     const findBook = await BookModel.findOne({ where: { id }});
-    const book = await BookModel.update({ ...bookData }, { where: {id}});
     if (!findBook) return { status: 404, message: { error: 'Erro. Livro não Encontrado!' } };
+
+    const book = await BookModel.update({ ...bookData }, { where: {id}});
     return { status: 201, message: `Livro de ID ${id} atualizado com Sucesso` };
   };
+
+  public async delete(id:string) {
+    const findBook = await BookModel.findOne({ where: { id }});
+    if (!findBook) return { status: 404, message: { error: 'Erro. Livro não Encontrado!' } };
+
+    const book = await BookModel.destroy({ where: { id } });
+    return { status: 201, message: `Livro de ID ${id} deletado com Sucesso` };
+  }
 }

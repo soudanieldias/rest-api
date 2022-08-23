@@ -26,5 +26,9 @@ export default class BooksController {
     return res.status(status).json(message);
   };
 
-  public async delete(req: Request, res: Response) {};
+  public async delete(req: Request, res: Response) {
+    const { id } = req.params;
+    const {status, message } = await booksService.delete(id);
+    return res.status(status).json(message);
+  };
 }

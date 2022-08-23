@@ -10,5 +10,6 @@ booksRouter.get('/', booksController.findAll);
 booksRouter.get('/:id', booksController.findOne);
 booksRouter.post('/', booksController.create);
 booksRouter.put('/:id', booksController.update);
+booksRouter.delete('/:id', booksController.delete);
 
 export default booksRouter;
