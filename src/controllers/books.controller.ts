@@ -20,7 +20,11 @@ export default class BooksController {
     return res.status(status).json(message);
   };
 
-  public async update(req: Request, res: Response) {};
+  public async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const { status, message } = await booksService.update(req.body, id);
+    return res.status(status).json(message);
+  };
 
   public async delete(req: Request, res: Response) {};
 }

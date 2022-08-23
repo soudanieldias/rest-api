@@ -17,4 +17,8 @@ export default class BooksService {
     const book = await BookModel.create({ ...bookData });
     return { status: 201, message: book };
   };
+  public async update(bookData:IBook, id:string) {
+    const book = await BookModel.update({ ...bookData }, { where: {id}});
+    return { status: 201, message: book };
+  };
 }
