@@ -16,8 +16,8 @@ export default class BooksController {
   };
 
   public async create(req: Request, res: Response) {
-    const book = booksService.create(req.body);
-    return res.status(201).json(book);
+    const { status, message} = await booksService.create(req.body);
+    return res.status(status).json(message);
   };
 
   public async update(req: Request, res: Response) {};
