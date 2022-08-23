@@ -9,5 +9,6 @@ const booksController = new BooksController();
 booksRouter.get('/', booksController.findAll);
 booksRouter.get('/:id', booksController.findOne);
 booksRouter.post('/', booksController.create);
+booksRouter.put('/:id', booksController.update);
 
 export default booksRouter;
