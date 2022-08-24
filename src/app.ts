@@ -1,6 +1,7 @@
 import express from 'express';
 import { db } from './database/db';
 import routes from './routes';
+import { errorMiddleware } from './middlewares';
 
 class App {
   constructor() {
@@ -35,6 +36,7 @@ class App {
   private routes = () => {
     this.app.use(routes);
     this.app.use('/images', express.static('static'));
+    this.app.use(errorMiddleware);
   };
 
   private syncDb = async () => {
