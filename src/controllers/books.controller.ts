@@ -1,10 +1,10 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { BooksService } from "../services";
 
 const booksService = new BooksService();
 
 export default class BooksController {
-  public async findAll(_req: Request, res: Response) {
+  public async findAll(_req: Request, res: Response, next:NextFunction) {
     try {
       const { status, message } = await booksService.findAll();
 
@@ -13,10 +13,11 @@ export default class BooksController {
     } catch (error) {
 
       console.error(error);
+      next(error);
     }
   };
 
-  public async findOne(req: Request, res: Response) {
+  public async findOne(req: Request, res: Response, next:NextFunction) {
     try {
       const { id } = req.params;
       const { status, message } = await booksService.findOne(id);
@@ -26,10 +27,11 @@ export default class BooksController {
     } catch (error) {
 
       console.error(error);
+      next(error);
     }
   };
 
-  public async create(req: Request, res: Response) {
+  public async create(req: Request, res: Response, next:NextFunction) {
     try {
       const { status, message} = await booksService.create(req.body);
 
@@ -38,10 +40,11 @@ export default class BooksController {
     } catch (error) {
 
       console.error(error);
+      next(error);
     }
   };
 
-  public async update(req: Request, res: Response) {
+  public async update(req: Request, res: Response, next:NextFunction) {
     try {
       const { id } = req.params;
       const { status, message } = await booksService.update(req.body, id);
@@ -51,10 +54,11 @@ export default class BooksController {
     } catch (error) {
 
       console.error(error);
+      next(error);
     }
   };
 
-  public async delete(req: Request, res: Response) {
+  public async delete(req: Request, res: Response, next:NextFunction) {
     try {
       const { id } = req.params;
       const {status, message } = await booksService.delete(id);
@@ -64,6 +68,7 @@ export default class BooksController {
     } catch (error) {
 
       console.error(error);
+      next(error);
     }
   };
 }
