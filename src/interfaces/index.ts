@@ -1,3 +1,4 @@
 import { IBook } from "./IBook";
+import { IError } from "./IError";
 
-export { IBook };
+export { IBook, IError };
