@@ -25,8 +25,8 @@ export const BookModel = db.define('book', {
     allowNull: false,
     defaultValue: false,
   },
-  publishDate: {
-    type: DataTypes.DATE,
+  publishYear: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   bookCover: {

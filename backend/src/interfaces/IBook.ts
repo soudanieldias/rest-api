@@ -4,6 +4,6 @@ export interface IBook {
   description: string;
   author: string;
   published: boolean;
-  publishDate: Date;
-  coverUrl: string;
+  publishYear: string;
+  bookCover: string;
 }
