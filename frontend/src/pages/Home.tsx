@@ -17,7 +17,7 @@ function Home() {
   return (
     <div className="home">
       <Header />
-      <section className="Books">
+      <section className="books-container">
         {
           booksData && booksData.map((book) => (
             <BookCard key={book.id} bookData={book} />
